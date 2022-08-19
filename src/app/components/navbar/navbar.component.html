@@ -1,1 +1,36 @@
-<p>navbar works!</p>
+<div class="navbar">
+  <ul>
+    <li>Logo</li>
+    <li><a class="active" href="">Home</a></li>
+
+    <li class="menu" mat-button [matMenuTriggerFor]="menu">
+      <button class="button">Accounting</button>
+    </li>
+    <mat-menu #menu="matMenu">
+      <a
+        [routerLink]="['/sales']"
+        routerLinkActive="router-link-active"
+        mat-menu-item
+        >Sales</a
+      >
+      <a
+        [routerLink]="['/purchases']"
+        routerLinkActive="router-link-active"
+        mat-menu-item
+        >Purchases</a
+      >
+      <a
+        [routerLink]="['/expenses']"
+        routerLinkActive="router-link-active"
+        mat-menu-item
+        >Expenses</a
+      >
+      <a
+        [routerLink]="['/reports']"
+        routerLinkActive="router-link-active"
+        mat-menu-item
+        >Reports</a
+      >
+    </mat-menu>
+  </ul>
+</div>

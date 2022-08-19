@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PurchasesComponent } from './purchases.component';
+import { PurchasesRoutingModule } from './purchases-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { PurchasesComponent } from './purchases.component';
     PurchasesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PurchasesRoutingModule
   ]
 })
 export class PurchasesModule { }
