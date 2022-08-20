@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExpensesComponent } from './expenses.component';
 import { ExpensesRoutingModule } from './expenses-routing.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 
@@ -11,7 +12,8 @@ import { ExpensesRoutingModule } from './expenses-routing.module';
   ],
   imports: [
     CommonModule,
-    ExpensesRoutingModule
+    ExpensesRoutingModule,
+    CoreModule
   ]
 })
 export class ExpensesModule { }

@@ -1,7 +1,14 @@
 <div class="navbar">
   <ul>
     <li>Logo</li>
-    <li><a class="active" href="">Home</a></li>
+    <li>
+      <a
+        class="active"
+        [routerLink]="['/']"
+        routerLinkActive="router-link-active"
+        >Home</a
+      >
+    </li>
 
     <li class="menu" mat-button [matMenuTriggerFor]="menu">
       <button class="button">Accounting</button>

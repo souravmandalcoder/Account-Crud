@@ -7,20 +7,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FullLayoutComponent } from './layout/full-layout/full-layout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CoreModule } from 'src/app/core/core.module';
-import { MatMenuModule } from '@angular/material/menu';
-import { MaterialLibModule } from './core/material-lib.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     FullLayoutComponent,
-    NavbarComponent
+    NavbarComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

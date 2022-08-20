@@ -1,0 +1,30 @@
+{
+  "sales": [
+    
+    {
+      "id": 1,
+      "invoiceNumber": 12345,
+      "IPAddress": "1234.5678.9012",
+      "receivedAmount": 12345,
+      "DCAmount": 12345,
+      "company":"apple",
+      "vendor":"nokia",
+      "DCPaymentStatus":"item",
+      "date":"12/2/2022",
+      "transactionID":12345
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 1
+    }
+  ]
+ 
+}
