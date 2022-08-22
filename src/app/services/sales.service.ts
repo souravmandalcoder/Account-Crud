@@ -18,12 +18,35 @@ export class SalesService {
     )
   }
 
+  deleteSales(id: number): Observable<any> {
+    const url = "http://localhost:3000/sales/" + id;
+    return this.http.delete(url).pipe(
+      map(res => {
+        return res
+      })
+    )
+  }
+
   newSales(newSales: any): Observable<any> {
-    const url = "http://localhost:3000/employees/";
+    const url = "http://localhost:3000/sales/";
     return this.http.post(url, newSales).pipe(
       map(res => {
         return res
       })
     )
   }
+
+
+
+  updateSales(data: any): Observable<any> {
+    const url = "http://localhost:3000/sales/" + data.id;
+    return this.http.put(url, data).pipe(
+      map(res => {
+        return res
+      })
+    )
+  }
 }
+
+
+

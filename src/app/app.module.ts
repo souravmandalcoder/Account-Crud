@@ -14,8 +14,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     FullLayoutComponent,
     NavbarComponent,
-
-
   ],
   imports: [
     BrowserModule,

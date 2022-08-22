@@ -5,7 +5,7 @@
         <mat-label>Invoice Number</mat-label>
         <input
           type="number"
-          [(ngModel)]="newSales.invoiceNumber"
+          [(ngModel)]="updateSales.invoiceNumber"
           name="invoiceNumber"
           matInput
           placeholder="Enter Invoice Number"
@@ -17,7 +17,7 @@
         <mat-label>IP Address</mat-label>
         <input
           type="text"
-          [(ngModel)]="newSales.IPAddress"
+          [(ngModel)]="updateSales.IPAddress"
           name="ipaddress"
           matInput
           placeholder="Enter IP Address"
@@ -29,7 +29,7 @@
         <mat-label>Received Amount</mat-label>
         <input
           type="number"
-          [(ngModel)]="newSales.receivedAmount"
+          [(ngModel)]="updateSales.receivedAmount"
           name="receivedAmount"
           matInput
           placeholder="0.00"
@@ -44,7 +44,7 @@
         <mat-label>DC Amount</mat-label>
         <input
           type="number"
-          [(ngModel)]="newSales.DCAmount"
+          [(ngModel)]="updateSales.DCAmount"
           name="dcAmount"
           matInput
           placeholder="0.00"
@@ -57,13 +57,7 @@
     <div class="right">
       <mat-form-field appearance="fill">
         <mat-label>Company</mat-label>
-        <input
-          type="text"
-          [(ngModel)]="newSales.company"
-          name="company"
-          matInput
-        />
-        <mat-select>
+        <mat-select [(ngModel)]="updateSales.company">
           <mat-option>None</mat-option>
           <mat-option *ngFor="let company of company" [value]="company">{{
             company
@@ -76,7 +70,7 @@
         <mat-label>Vendor</mat-label>
         <input
           type="text"
-          [(ngModel)]="newSales.vendor"
+          [(ngModel)]="updateSales.vendor"
           name="vendor"
           matInput
         />
@@ -93,7 +87,7 @@
         <mat-label>DC Payment Status</mat-label>
         <input
           type="text"
-          [(ngModel)]="newSales.DCPaymentStatus"
+          [(ngModel)]="updateSales.DCPaymentStatus"
           name="DCPaymentStatus"
           matInput
         />
@@ -113,25 +107,24 @@
         <mat-label>Transaction ID</mat-label>
         <input
           type="number"
-          [(ngModel)]="newSales.transactionID"
+          [(ngModel)]="updateSales.transactionID"
           name="transactionID"
           matInput
           placeholder="Transaction ID"
         />
       </mat-form-field>
     </div>
-    <div class="button">
-      <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close>Cancel</button>
-        <button
-          mat-button
-          [mat-dialog-close]="true"
-          cdkFocusInitial
-          (click)="addSales()"
-        >
-          Submit
-        </button>
-      </mat-dialog-actions>
-    </div>
+
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button
+        mat-button
+        [mat-dialog-close]="true"
+        cdkFocusInitial
+        (click)="updateRecords()"
+      >
+        Submit
+      </button>
+    </mat-dialog-actions>
   </form>
 </div>

@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Sales } from 'src/app/models/sales';
 import { SalesService } from 'src/app/services/sales.service';
-import { MatDialogRef } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
-import { FormControl } from '@angular/forms';
-import { map, startWith } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-newsales',
-  templateUrl: './newsales.component.html',
-  styleUrls: ['./newsales.component.scss']
+  selector: 'app-updatesales',
+  templateUrl: './updatesales.component.html',
+  styleUrls: ['./updatesales.component.scss']
 })
-export class NewsalesComponent implements OnInit {
+export class UpdatesalesComponent implements OnInit {
 
   company: string[] = [
     'Company1',
@@ -40,22 +37,19 @@ export class NewsalesComponent implements OnInit {
     'pending',
   ]
 
-  newSales = new Sales();
+  updateSales = new Sales();
 
-  constructor(private salesService: SalesService, private dialogRef: MatDialogRef<NewsalesComponent>) { }
+  constructor(private salesService: SalesService, private dialogRef: MatDialogRef<UpdatesalesComponent>) { }
 
   ngOnInit(): void {
-
   }
 
-  addSales() {
-    this.salesService.newSales(this.newSales).subscribe(res => {
-      console.log(res);
+  updateRecords() {
+
+    this.salesService.updateSales(this.updateSales).subscribe(res => {
+      // this.getEmployee();
       this.dialogRef.close();
     })
   }
-
-
-
 
 }
