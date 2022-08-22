@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -25,7 +26,8 @@ const modules = [
   MatInputModule,
   MatAutocompleteModule,
   MatSelectModule,
-  MatDatepickerModule
+  MatDatepickerModule,
+  MatNativeDateModule
 ];
 
 

@@ -100,6 +100,22 @@
         </mat-select>
       </mat-form-field>
     </div>
+    <div class="date">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input
+          [(ngModel)]="newSales.date"
+          name="date"
+          matInput
+          [matDatepicker]="picker"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
 
     <div class="left">
       <mat-form-field appearance="outline">

@@ -1,27 +1,15 @@
 {
   "sales": [
     {
-      "id": 1,
-      "invoiceNumber": 12345,
-      "IPAddress": "1234.5678.9012",
-      "receivedAmount": 12345,
-      "DCAmount": 12345,
-      "company": "apple",
-      "vendor": "nokia",
-      "DCPaymentStatus": "item",
-      "date": "12/2/2022",
-      "transactionID": 12345
-    },
-    {
       "id": 2,
       "invoiceNumber": 12345,
       "IPAddress": "1234.5678.9012",
       "receivedAmount": 12345,
       "DCAmount": 12345,
-      "company": "apple",
-      "vendor": "nokia",
-      "DCPaymentStatus": "item",
-      "date": "12/2/2022",
+      "company": "Company3",
+      "vendor": "vendor4",
+      "DCPaymentStatus": "completed",
+      "date": "2022-09-19T18:30:00.000Z",
       "transactionID": 12345
     },
     {
@@ -42,9 +30,9 @@
       "IPAddress": "1234.5678.9012",
       "receivedAmount": 12345,
       "DCAmount": 12345,
-      "company": "apple",
-      "vendor": "nokia",
-      "DCPaymentStatus": "item",
+      "company": "Company3",
+      "vendor": "vendor3",
+      "DCPaymentStatus": "completed",
       "date": "12/2/2022",
       "transactionID": 12345
     },
@@ -54,27 +42,55 @@
       "receivedAmount": 342,
       "DCAmount": 3424,
       "transactionID": 4352,
-      "id": 8
+      "id": 8,
+      "company": "Company4",
+      "vendor": "vendor4",
+      "DCPaymentStatus": "pending"
     },
     {
       "invoiceNumber": 43535,
       "IPAddress": "3.3.3.3",
       "receivedAmount": 435,
       "DCAmount": 4535,
-      "company": "",
+      "company": "Company2",
       "transactionID": 465364,
-      "id": 9
+      "id": 9,
+      "DCPaymentStatus": "completed",
+      "vendor": "vendor2"
     },
     {
       "invoiceNumber": 54325,
       "IPAddress": "4325",
       "receivedAmount": 5432,
       "DCAmount": 543252,
-      "company": "Company3",
-      "vendor": "vendor3",
-      "DCPaymentStatus": "completed",
+      "company": "Company1",
+      "vendor": "vendor5",
+      "DCPaymentStatus": "pending",
       "transactionID": 563,
       "id": 14
+    },
+    {
+      "invoiceNumber": 4352,
+      "IPAddress": "45235",
+      "receivedAmount": 45325,
+      "DCAmount": 45325,
+      "company": "Company3",
+      "vendor": "vendor2",
+      "DCPaymentStatus": "completed",
+      "transactionID": 4653,
+      "id": 15,
+      "date": "2022-08-05T18:30:00.000Z"
+    },
+    {
+      "invoiceNumber": 3414,
+      "IPAddress": "4312432",
+      "DCAmount": 4214,
+      "company": "Company3",
+      "vendor": "vendor3",
+      "DCPaymentStatus": "pending",
+      "date": "2022-07-31T18:30:00.000Z",
+      "transactionID": 421,
+      "id": 16
     }
   ],
   "comments": [

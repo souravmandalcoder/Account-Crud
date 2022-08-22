@@ -10,6 +10,8 @@ import { SalesService } from 'src/app/services/sales.service';
 })
 export class UpdatesalesComponent implements OnInit {
 
+  dataSource: any;
+
   company: string[] = [
     'Company1',
     'Company2',
@@ -45,10 +47,17 @@ export class UpdatesalesComponent implements OnInit {
   }
 
   updateRecords() {
-
     this.salesService.updateSales(this.updateSales).subscribe(res => {
-      // this.getEmployee();
       this.dialogRef.close();
+      this.getSales();
+    })
+  }
+
+  getSales() {
+    this.salesService.getSales().subscribe(res => {
+      this.updateSales = res;
+      console.log(this.updateSales);
+      this.dataSource = this.updateSales;
     })
   }
 

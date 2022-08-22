@@ -14,17 +14,6 @@ import { UpdatesalesComponent } from '../dialogs/sales/updatesales/updatesales.c
 })
 export class SalesComponent implements OnInit {
 
-  // id!: number;
-  // invoiceNumber!: number;
-  // IPAddress!: string;
-  // receivedAmount!: number;
-  // DCAmount!: number;
-  // comapany!: string;
-  // vendor!: string;
-  // DCPaymentStatus!: string;
-  // date!: string;
-  // transactionID!: number;
-
   displayedColumns: string[] = ['invoiceNumber', 'IPAddress', 'receivedAmount', 'DCAmount', 'company', 'vendor', 'DCPaymentStatus', 'date', 'transactionID', 'action'];
   dataSource: any;
   sales: Sales[] = [];
@@ -51,8 +40,8 @@ export class SalesComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(NewsalesComponent);
-
     dialogRef.afterClosed().subscribe(result => {
+      this.getSales();
       console.log(`Dialog result: ${result}`);
     });
   }
@@ -61,8 +50,8 @@ export class SalesComponent implements OnInit {
     const dialogRef = this.dialog.open(UpdatesalesComponent);
     dialogRef.componentInstance.updateSales = sales;
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
       this.getSales();
+      console.log(`Dialog result: ${result}`);
     });
   }
 
