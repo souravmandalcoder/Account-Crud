@@ -51,6 +51,7 @@ export class NewsalesComponent implements OnInit {
   addSales() {
     this.salesService.newSales(this.newSales).subscribe(res => {
       console.log(res);
+      console.log(this.newSales)
       this.dialogRef.close();
     })
   }

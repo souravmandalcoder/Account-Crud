@@ -49,18 +49,6 @@
       "transactionID": 12345
     },
     {
-      "id": 5,
-      "invoiceNumber": 12345,
-      "IPAddress": "1234.5678.9012",
-      "receivedAmount": 12345,
-      "DCAmount": 12345,
-      "company": "apple",
-      "vendor": "nokia",
-      "DCPaymentStatus": "item",
-      "date": "12/2/2022",
-      "transactionID": 12345
-    },
-    {
       "invoiceNumber": 123123,
       "IPAddress": "2.2.2.2",
       "receivedAmount": 342,
@@ -76,6 +64,17 @@
       "company": "",
       "transactionID": 465364,
       "id": 9
+    },
+    {
+      "invoiceNumber": 54325,
+      "IPAddress": "4325",
+      "receivedAmount": 5432,
+      "DCAmount": 543252,
+      "company": "Company3",
+      "vendor": "vendor3",
+      "DCPaymentStatus": "completed",
+      "transactionID": 563,
+      "id": 14
     }
   ],
   "comments": [

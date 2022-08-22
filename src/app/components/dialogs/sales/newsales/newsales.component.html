@@ -57,13 +57,10 @@
     <div class="right">
       <mat-form-field appearance="fill">
         <mat-label>Company</mat-label>
-        <input
-          type="text"
+        <mat-select
           [(ngModel)]="newSales.company"
-          name="company"
-          matInput
-        />
-        <mat-select>
+          [ngModelOptions]="{ standalone: true }"
+        >
           <mat-option>None</mat-option>
           <mat-option *ngFor="let company of company" [value]="company">{{
             company
@@ -74,13 +71,11 @@
     <div class="right">
       <mat-form-field appearance="fill">
         <mat-label>Vendor</mat-label>
-        <input
-          type="text"
+
+        <mat-select
           [(ngModel)]="newSales.vendor"
-          name="vendor"
-          matInput
-        />
-        <mat-select>
+          [ngModelOptions]="{ standalone: true }"
+        >
           <mat-option>None</mat-option>
           <mat-option *ngFor="let vendor of vendor" [value]="vendor">{{
             vendor
@@ -91,13 +86,11 @@
     <div class="right">
       <mat-form-field appearance="fill">
         <mat-label>DC Payment Status</mat-label>
-        <input
-          type="text"
+
+        <mat-select
           [(ngModel)]="newSales.DCPaymentStatus"
-          name="DCPaymentStatus"
-          matInput
-        />
-        <mat-select>
+          [ngModelOptions]="{ standalone: true }"
+        >
           <mat-option>None</mat-option>
           <mat-option
             *ngFor="let DCPaymentStatus of DCPaymentStatus"
