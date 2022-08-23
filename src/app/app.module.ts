@@ -9,11 +9,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     FullLayoutComponent,
     NavbarComponent,
+
   ],
   imports: [
     BrowserModule,

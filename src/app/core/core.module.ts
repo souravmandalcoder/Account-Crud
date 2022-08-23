@@ -4,11 +4,16 @@ import { MaterialLibModule } from './material-lib.module';
 import { NewsalesComponent } from '../components/dialogs/sales/newsales/newsales.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdatesalesComponent } from '../components/dialogs/sales/updatesales/updatesales.component';
+import { AddPurchasesComponent } from '../components/dialogs/purchases/addPurchases/add-purchases.component';
+import { UpdatePurchasesComponent } from '../components/dialogs/purchases/updatePurchases/update-purchases.component';
+
 
 @NgModule({
   declarations: [
     NewsalesComponent,
-    UpdatesalesComponent
+    UpdatesalesComponent,
+    AddPurchasesComponent,
+    UpdatePurchasesComponent
   ],
   imports: [
     CommonModule,

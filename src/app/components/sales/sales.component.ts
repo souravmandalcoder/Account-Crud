@@ -5,8 +5,6 @@ import { SalesService } from 'src/app/services/sales.service';
 import { NewsalesComponent } from '../dialogs/sales/newsales/newsales.component';
 import { UpdatesalesComponent } from '../dialogs/sales/updatesales/updatesales.component';
 
-
-
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
