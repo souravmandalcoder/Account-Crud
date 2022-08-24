@@ -14,7 +14,6 @@ export class PurchasesComponent implements OnInit {
 
   purchases: Purchases[] = [];
 
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   displayedColumns: string[] = ['invoiceNumber', 'IPAddress', 'DCAmount', 'date', 'transactionID', 'action'];
   dataSource: any;
 
@@ -43,7 +42,6 @@ export class PurchasesComponent implements OnInit {
   addPurchasesDialog() {
     const dialogRef = this.dialog.open(AddPurchasesComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.getPurchases();
       console.log(`Dialog result: ${result}`);
     });
   }
@@ -52,7 +50,6 @@ export class PurchasesComponent implements OnInit {
     const dialogRef = this.dialog.open(UpdatePurchasesComponent);
     dialogRef.componentInstance.updatePurchases = purchases;
     dialogRef.afterClosed().subscribe(result => {
-      this.getPurchases();
       console.log(`Dialog result: ${result}`);
     });
   }

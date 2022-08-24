@@ -49,16 +49,10 @@ export class UpdatesalesComponent implements OnInit {
   updateRecords() {
     this.salesService.updateSales(this.updateSales).subscribe(res => {
       this.dialogRef.close();
-      this.getSales();
+
     })
   }
 
-  getSales() {
-    this.salesService.getSales().subscribe(res => {
-      this.updateSales = res;
-      console.log(this.updateSales);
-      this.dataSource = this.updateSales;
-    })
-  }
+
 
 }

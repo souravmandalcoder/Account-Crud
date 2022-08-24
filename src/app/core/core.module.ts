@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdatesalesComponent } from '../components/dialogs/sales/updatesales/updatesales.component';
 import { AddPurchasesComponent } from '../components/dialogs/purchases/addPurchases/add-purchases.component';
 import { UpdatePurchasesComponent } from '../components/dialogs/purchases/updatePurchases/update-purchases.component';
+import { UpdateExpensesComponent } from '../components/dialogs/expenses/update-expenses/update-expenses.component';
+import { AddExpensesComponent } from '../components/dialogs/expenses/add-expenses/add-expenses.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { UpdatePurchasesComponent } from '../components/dialogs/purchases/update
     NewsalesComponent,
     UpdatesalesComponent,
     AddPurchasesComponent,
-    UpdatePurchasesComponent
+    UpdatePurchasesComponent,
+    AddExpensesComponent,
+    UpdateExpensesComponent
   ],
   imports: [
     CommonModule,

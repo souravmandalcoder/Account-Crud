@@ -39,7 +39,6 @@ export class SalesComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(NewsalesComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.getSales();
       console.log(`Dialog result: ${result}`);
     });
   }
@@ -48,7 +47,6 @@ export class SalesComponent implements OnInit {
     const dialogRef = this.dialog.open(UpdatesalesComponent);
     dialogRef.componentInstance.updateSales = sales;
     dialogRef.afterClosed().subscribe(result => {
-      this.getSales();
       console.log(`Dialog result: ${result}`);
     });
   }
