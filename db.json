@@ -93,7 +93,8 @@
       "DCPaymentStatus": "pending",
       "date": "2022-07-31T18:30:00.000Z",
       "transactionID": 421,
-      "id": 16
+      "id": 16,
+      "receivedAmount": 452
     }
   ],
   "purchases": [
@@ -102,7 +103,6 @@
       "invoiceNumber": 3414,
       "IPAddress": "4312432",
       "DCAmount": 4214,
-      "DCPaymentStatus": "pending",
       "date": "2022-07-31T18:30:00.000Z",
       "transactionID": 421
     },
@@ -111,27 +111,24 @@
       "invoiceNumber": 3414,
       "IPAddress": "4312432",
       "DCAmount": 4214,
-      "DCPaymentStatus": "pending",
       "date": "2022-07-31T18:30:00.000Z",
       "transactionID": 421
     },
     {
       "id": 3,
-      "invoiceNumber": 3414,
+      "invoiceNumber": 1111,
       "IPAddress": "4312432",
       "DCAmount": 4214,
-      "DCPaymentStatus": "pending",
       "date": "2022-07-31T18:30:00.000Z",
       "transactionID": 421
     },
     {
-      "id": 4,
-      "invoiceNumber": 3414,
-      "IPAddress": "4312432",
-      "DCAmount": 4214,
-      "DCPaymentStatus": "pending",
+      "invoiceNumber": 2222,
+      "IPAddress": "453532",
+      "DCAmount": 435,
       "date": "2022-07-31T18:30:00.000Z",
-      "transactionID": 421
+      "transactionID": 45353,
+      "id": 4
     }
   ]
 }

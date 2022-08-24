@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
+import { Purchases } from 'src/app/models/purchases';
+import { PurchasesService } from 'src/app/services/purchases.service';
+import { UpdatesalesComponent } from '../../sales/updatesales/updatesales.component';
 
 @Component({
   selector: 'app-update-purchases',
@@ -7,9 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdatePurchasesComponent implements OnInit {
 
-  constructor() { }
+  updatePurchases = new Purchases()
+
+  constructor(private purchasesService: PurchasesService, private dialogRef: MatDialogRef<UpdatesalesComponent>) { }
 
   ngOnInit(): void {
+  }
+
+  updateRecord() {
+    this.purchasesService.updatePurchases(this.updatePurchases).subscribe(res => {
+      this.dialogRef.close();
+
+    })
   }
 
 }
