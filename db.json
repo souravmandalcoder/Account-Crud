@@ -49,86 +49,74 @@
       "date": "2022-09-19T18:30:00.000Z"
     },
     {
-      "invoiceNumber": 43535,
-      "IPAddress": "3.3.3.3",
-      "receivedAmount": 435,
-      "DCAmount": 4535,
+      "invoiceNumber": 111,
+      "IPAddress": "1111",
+      "receivedAmount": 1111,
+      "DCAmount": 1111,
       "company": "Company2",
-      "transactionID": 465364,
-      "id": 9,
-      "DCPaymentStatus": "completed",
       "vendor": "vendor2",
-      "date": "2022-07-31T18:30:00.000Z"
-    },
-    {
-      "invoiceNumber": 54325,
-      "IPAddress": "4325",
-      "receivedAmount": 5432,
-      "DCAmount": 543252,
-      "company": "Company1",
-      "vendor": "vendor5",
       "DCPaymentStatus": "pending",
-      "transactionID": 563,
-      "id": 14,
-      "date": "2022-08-17T18:30:00.000Z"
-    },
-    {
-      "invoiceNumber": 4352,
-      "IPAddress": "45235",
-      "receivedAmount": 45325,
-      "DCAmount": 45325,
-      "company": "Company3",
-      "vendor": "vendor2",
-      "DCPaymentStatus": "completed",
-      "transactionID": 4653,
-      "id": 15,
-      "date": "2022-08-05T18:30:00.000Z"
-    },
-    {
-      "invoiceNumber": 3414,
-      "IPAddress": "4312432",
-      "DCAmount": 4214,
-      "company": "Company3",
-      "vendor": "vendor3",
-      "DCPaymentStatus": "pending",
-      "date": "2022-07-31T18:30:00.000Z",
-      "transactionID": 421,
-      "id": 16,
-      "receivedAmount": 452
+      "date": "2022-08-10T18:30:00.000Z",
+      "transactionID": 1111,
+      "id": 11
     }
   ],
   "purchases": [
     {
-      "id": 1,
-      "invoiceNumber": 3414,
-      "IPAddress": "4312432",
-      "DCAmount": 4214,
-      "date": "2022-07-31T18:30:00.000Z",
-      "transactionID": 421
-    },
-    {
-      "id": 2,
-      "invoiceNumber": 3414,
-      "IPAddress": "4312432",
-      "DCAmount": 4214,
-      "date": "2022-07-31T18:30:00.000Z",
-      "transactionID": 421
-    },
-    {
-      "id": 3,
-      "invoiceNumber": 1111,
-      "IPAddress": "4312432",
-      "DCAmount": 4214,
-      "date": "2022-07-31T18:30:00.000Z",
-      "transactionID": 421
-    },
-    {
-      "invoiceNumber": 66666,
+      "invoiceNumber": 6666,
       "IPAddress": "6666",
       "DCAmount": 6666,
-      "date": "2022-07-31T18:30:00.000Z",
+      "date": "2022-08-30T18:30:00.000Z",
       "transactionID": 6666,
-      "id": 4
+      "id": 6
+    },
+    {
+      "invoiceNumber": 5555,
+      "IPAddress": "5555",
+      "DCAmount": 5555,
+      "date": "2022-08-15T18:30:00.000Z",
+      "transactionID": 5555,
+      "id": 7
+    },
+    {
+      "invoiceNumber": 8888,
+      "IPAddress": "8888",
+      "DCAmount": 8888,
+      "date": "2022-08-15T18:30:00.000Z",
+      "transactionID": 88888,
+      "id": 8
+    },
+    {
+      "invoiceNumber": 1111,
+      "IPAddress": "1111",
+      "DCAmount": 1111,
+      "date": "2022-08-22T18:30:00.000Z",
+      "transactionID": 1111,
+      "id": 9
+    },
+    {
+      "invoiceNumber": 3424,
+      "IPAddress": "43242",
+      "DCAmount": 432,
+      "date": "2022-08-08T18:30:00.000Z",
+      "transactionID": 3242,
+      "id": 10
+    },
+    {
+      "invoiceNumber": 34242,
+      "IPAddress": "34242",
+      "DCAmount": 34242,
+      "date": "2022-08-01T18:30:00.000Z",
+      "transactionID": 424242,
+      "id": 11
+    },
+    {
+      "invoiceNumber": 5463,
+      "IPAddress": "65464",
+      "DCAmount": 6456464,
+      "date": "2022-08-22T18:30:00.000Z",
+      "transactionID": 54645,
+      "id": 12
     }
   ],
   "expenses": [
@@ -169,22 +157,40 @@
       "id": 4
     },
     {
-      "invoiceNumber": 4444,
-      "IPAddress": "522",
-      "expenseAmount": 43242,
+      "invoiceNumber": 666,
+      "IPAddress": "6666",
+      "expenseAmount": 6666,
       "DCPaymentStatus": "completed",
-      "date": "2022-08-02T18:30:00.000Z",
-      "transactionID": 43242,
-      "id": 5
+      "date": "2022-08-27T18:30:00.000Z",
+      "transactionID": 6666,
+      "id": 8
+    },
+    {
+      "invoiceNumber": 7777,
+      "IPAddress": "7777",
+      "expenseAmount": 7777,
+      "DCPaymentStatus": "completed",
+      "date": "2022-08-04T18:30:00.000Z",
+      "transactionID": 7777,
+      "id": 9
     },
     {
       "invoiceNumber": 6666,
       "IPAddress": "6666",
       "expenseAmount": 6666,
       "DCPaymentStatus": "completed",
-      "date": "2022-08-08T18:30:00.000Z",
+      "date": "2022-08-23T18:30:00.000Z",
       "transactionID": 6666,
-      "id": 6
+      "id": 10
+    },
+    {
+      "invoiceNumber": 5555,
+      "IPAddress": "5555",
+      "expenseAmount": 5555,
+      "DCPaymentStatus": "pending",
+      "date": "2022-07-31T18:30:00.000Z",
+      "transactionID": 5555,
+      "id": 11
     }
   ]
 }

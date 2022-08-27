@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Purchases } from 'src/app/models/purchases';
 import { PurchasesService } from 'src/app/services/purchases.service';
@@ -10,6 +10,7 @@ import { UpdatePurchasesComponent } from '../dialogs/purchases/updatePurchases/u
   templateUrl: './purchases.component.html',
   styleUrls: ['./purchases.component.scss']
 })
+// export class PurchasesComponent implements OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 export class PurchasesComponent implements OnInit {
 
   purchases: Purchases[] = [];
@@ -19,6 +20,7 @@ export class PurchasesComponent implements OnInit {
 
 
   constructor(private purchasesService: PurchasesService, public dialog: MatDialog) { }
+
 
   ngOnInit(): void {
     this.getPurchases()
@@ -40,10 +42,13 @@ export class PurchasesComponent implements OnInit {
   }
 
   addPurchasesDialog() {
-    const dialogRef = this.dialog.open(AddPurchasesComponent);
+    const dialogRef = this.dialog.open(AddPurchasesComponent)
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.getPurchases();
+      this.ngOnInit();
+      // console.log(`Dialog result: ${result}`);
     });
+
   }
 
   updatePurchasesDialog(purchases: Purchases) {

@@ -20,6 +20,7 @@ export class UpdatePurchasesComponent implements OnInit {
 
   updateRecord() {
     this.purchasesService.updatePurchases(this.updatePurchases).subscribe(res => {
+      console.log(this.updatePurchases)
       this.dialogRef.close();
 
     })

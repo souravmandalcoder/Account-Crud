@@ -41,6 +41,7 @@ export class ExpensesComponent implements OnInit {
   addExpensesDialog() {
     const dialogRef = this.dialog.open(AddExpensesComponent);
     dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit()
       console.log(`Dialog result: ${result}`);
     });
   }

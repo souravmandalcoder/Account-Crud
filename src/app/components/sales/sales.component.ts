@@ -39,6 +39,7 @@ export class SalesComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(NewsalesComponent);
     dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit();
       console.log(`Dialog result: ${result}`);
     });
   }
