@@ -22,6 +22,7 @@ export class SalesComponent implements OnInit {
     this.getSales()
   }
 
+
   getSales() {
     this.salesService.getSales().subscribe(res => {
       this.sales = res;
@@ -39,8 +40,12 @@ export class SalesComponent implements OnInit {
   openDialog() {
     const dialogRef = this.dialog.open(NewsalesComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.ngOnInit();
       console.log(`Dialog result: ${result}`);
+
+      setTimeout(() => {
+        this.getSales()
+        console.log("This is settimeout")
+      }, 1000);
     });
   }
 
@@ -49,6 +54,10 @@ export class SalesComponent implements OnInit {
     dialogRef.componentInstance.updateSales = sales;
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      setTimeout(() => {
+        this.getSales()
+        console.log("This is settimeout")
+      }, 1000);
     });
   }
 

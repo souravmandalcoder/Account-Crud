@@ -44,9 +44,11 @@ export class PurchasesComponent implements OnInit {
   addPurchasesDialog() {
     const dialogRef = this.dialog.open(AddPurchasesComponent)
     dialogRef.afterClosed().subscribe(result => {
-      this.getPurchases();
-      this.ngOnInit();
-      // console.log(`Dialog result: ${result}`);
+      console.log(`Dialog result: ${result}`);
+      setTimeout(() => {
+        this.getPurchases()
+        console.log("This is settimeout")
+      }, 1000);
     });
 
   }
@@ -56,6 +58,10 @@ export class PurchasesComponent implements OnInit {
     dialogRef.componentInstance.updatePurchases = purchases;
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      setTimeout(() => {
+        this.getPurchases()
+        console.log("This is settimeout")
+      }, 1000);
     });
   }
 

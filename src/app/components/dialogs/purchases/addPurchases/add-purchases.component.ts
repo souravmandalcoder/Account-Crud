@@ -19,7 +19,6 @@ export class AddPurchasesComponent implements OnInit {
 
   addPurchases() {
     this.purchasesService.addPurchases(this.newPurchases).subscribe(res => {
-
       console.log(this.newPurchases)
       this.dialogRef.close();
     })
