@@ -85,15 +85,15 @@
       "id": 19
     },
     {
-      "invoiceNumber": 5555,
-      "IPAddress": "5555",
-      "receivedAmount": 5555,
-      "DCAmount": 5555,
+      "invoiceNumber": 3424,
+      "IPAddress": "42424242",
+      "receivedAmount": 43242,
+      "DCAmount": 42424,
       "company": "Company3",
       "vendor": "vendor3",
-      "DCPaymentStatus": "pending",
-      "date": "2022-08-24T18:30:00.000Z",
-      "transactionID": 5555,
+      "DCPaymentStatus": "completed",
+      "date": "2022-08-10T18:30:00.000Z",
+      "transactionID": 55,
       "id": 20
     }
   ],

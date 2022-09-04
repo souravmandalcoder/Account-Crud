@@ -41,7 +41,6 @@ export class SalesComponent implements OnInit {
     const dialogRef = this.dialog.open(NewsalesComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-
       setTimeout(() => {
         this.getSales()
         console.log("This is settimeout")

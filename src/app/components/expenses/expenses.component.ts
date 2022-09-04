@@ -40,9 +40,9 @@ export class ExpensesComponent implements OnInit {
 
   addExpensesDialog() {
     const dialogRef = this.dialog.open(AddExpensesComponent);
-    dialogRef.afterClosed().subscribe(async result => {
+    dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-      await setTimeout(() => {
+      setTimeout(() => {
         this.getExpenses()
         console.log("This is settimeout")
       }, 1000);
@@ -52,9 +52,9 @@ export class ExpensesComponent implements OnInit {
   openUpdateDialog(expenses: Expenses) {
     const dialogRef = this.dialog.open(UpdateExpensesComponent);
     dialogRef.componentInstance.newExpenses = expenses;
-    dialogRef.afterClosed().subscribe(async result => {
+    dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
-      await setTimeout(() => {
+      setTimeout(() => {
         this.getExpenses()
         console.log("This is settimeout")
       }, 1000);
