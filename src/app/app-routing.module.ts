@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FullLayoutComponent } from './layout/full-layout/full-layout.component';
+import { LoginLayoutComponent } from './layout/login-layout/login-layout.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
         loadChildren: () => import('./components/reports/reports.module').then((x) => x.ReportsModule)
       },
     ]
-  }
+  },
+
 ];
 
 @NgModule({
