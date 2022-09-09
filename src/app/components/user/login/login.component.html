@@ -1,1 +1,53 @@
-<p>login works!</p>
+<h1>Login Works</h1>
+<div class="login" fxFlex="100" fxLayoutAlign="center center">
+  <div class="login-form" fxLayout="column">
+    <form
+      #f="ngForm"
+      fxFlex="100"
+      fxLayout="row wrap"
+      fxLayoutAlign="center center"
+    >
+      <h2 class="title" fxLayoutAlign="center center">Login Form</h2>
+      <div
+        class="email"
+        fxFlex="100"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+      >
+        <div class="example-container">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input
+              required
+              email
+              matInput
+              name="login"
+              required
+              [(ngModel)]="login.email"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div
+        class="password"
+        fxFlex="100"
+        fxLayout="row"
+        fxLayoutAlign="center center"
+      >
+        <div class="example-container">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input [(ngModel)]="login.password" name="password" matInput />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="button">
+        <div class="example-button-row">
+          <button (click)="getDetails()" mat-raised-button color="accent">
+            Login
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

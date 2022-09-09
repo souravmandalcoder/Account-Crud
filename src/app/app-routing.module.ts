@@ -26,7 +26,16 @@ const routes: Routes = [
       },
     ]
   },
-
+  {
+    path: '',
+    component: LoginLayoutComponent,
+    children: [
+      {
+        path: 'login',
+        loadChildren: () => import('./components/user/login/login.module').then((x) => x.LoginModule)
+      }
+    ]
+  }
 ];
 
 @NgModule({
