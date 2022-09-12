@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/models/login';
 import { LoginService } from 'src/app/services/login.service';
@@ -11,34 +11,41 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginCredentials: Login = new Login();
-  login: Login = new Login()
-  convertedLogin: any;
+  public loginForm !: FormGroup;
 
-  constructor(private loginService: LoginService) { }
+  // loginCredentials: Login = new Login();
+  login: Login = new Login()
+
+  constructor(private loginService: LoginService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     console.log("Login loaded")
+    this.loginForm = this.formBuilder.group({
+      email: [''],
+      password: ['']
+    })
   }
 
-  getDetails() {
-    console.log(this.login)
+  loginUser() {
     this.loginService.getDetails().subscribe(res => {
-      this.loginCredentials = res;
-      console.log(this.loginCredentials);
-    })
-
-    this.convertedLogin = Object.values(this.loginCredentials);
-    console.log(typeof (this.convertedLogin))
-
-    setTimeout(() => {
-      if (this.login.email == '123@gmail.com') {
-        console.log("Same Credentials")
+      this.login = res;
+      console.log(this.login);
+      const user = res.find((a: any) => {
+        return a.email === this.loginForm.value.email && a.password === this.loginForm.value.password
+      });
+      if (user) {
+        alert("Login Success")
+        this.loginForm.reset()
+        this.router.navigate(['sales'])
       }
       else {
-        console.log("Not same credentials")
+        alert("User Not Found")
       }
-    }, 2000);
+    }, err => {
+      alert("Something Went Wrong")
+    })
+    console.log(this.loginForm.value)
+
 
   }
 
