@@ -6,6 +6,11 @@ import { LoginLayoutComponent } from './layout/login-layout/login-layout.compone
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: FullLayoutComponent,
     children: [
       {
