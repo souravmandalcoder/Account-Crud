@@ -15,7 +15,8 @@ import { LoginLayoutComponent } from './layout/login-layout/login-layout.compone
     AppComponent,
     FullLayoutComponent,
     NavbarComponent,
-    LoginLayoutComponent
+    LoginLayoutComponent,
+
   ],
   imports: [
     BrowserModule,

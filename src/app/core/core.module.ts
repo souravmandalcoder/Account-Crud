@@ -8,6 +8,8 @@ import { AddPurchasesComponent } from '../components/dialogs/purchases/addPurcha
 import { UpdatePurchasesComponent } from '../components/dialogs/purchases/updatePurchases/update-purchases.component';
 import { UpdateExpensesComponent } from '../components/dialogs/expenses/update-expenses/update-expenses.component';
 import { AddExpensesComponent } from '../components/dialogs/expenses/add-expenses/add-expenses.component';
+import { DateSearchComponent } from '../components/search/date-search/date-search.component';
+import { KeySearchComponent } from '../components/search/key-search/key-search.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { AddExpensesComponent } from '../components/dialogs/expenses/add-expense
     AddPurchasesComponent,
     UpdatePurchasesComponent,
     AddExpensesComponent,
-    UpdateExpensesComponent
+    UpdateExpensesComponent,
+    KeySearchComponent,
+    DateSearchComponent
   ],
   imports: [
     CommonModule,

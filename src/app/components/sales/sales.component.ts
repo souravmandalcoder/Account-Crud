@@ -12,6 +12,8 @@ import { UpdatesalesComponent } from '../dialogs/sales/updatesales/updatesales.c
 })
 export class SalesComponent implements OnInit {
 
+  value = 'Clear me';
+
   displayedColumns: string[] = ['invoiceNumber', 'IPAddress', 'receivedAmount', 'DCAmount', 'company', 'vendor', 'DCPaymentStatus', 'date', 'transactionID', 'action'];
   dataSource: any;
   sales: Sales[] = [];
