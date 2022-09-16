@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { Sales } from 'src/app/models/sales';
 import { SalesService } from 'src/app/services/sales.service';
 import { NewsalesComponent } from '../dialogs/sales/newsales/newsales.component';
 import { UpdatesalesComponent } from '../dialogs/sales/updatesales/updatesales.component';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-sales',
@@ -12,7 +15,8 @@ import { UpdatesalesComponent } from '../dialogs/sales/updatesales/updatesales.c
 })
 export class SalesComponent implements OnInit {
 
-  value = 'Clear me';
+
+  searchKey!: string;
 
   displayedColumns: string[] = ['invoiceNumber', 'IPAddress', 'receivedAmount', 'DCAmount', 'company', 'vendor', 'DCPaymentStatus', 'date', 'transactionID', 'action'];
   dataSource: any;
@@ -21,20 +25,21 @@ export class SalesComponent implements OnInit {
   constructor(private salesService: SalesService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getSales()
+    this.getSales();
   }
+
 
 
   getSales() {
     this.salesService.getSales().subscribe(res => {
       this.sales = res;
       console.log(this.sales);
-      this.dataSource = this.sales;
+      this.dataSource = new MatTableDataSource(this.sales);
     })
   }
 
   deleteSales(id: number) {
-    this.salesService.deleteSales(id).subscribe(res => {
+    this.salesService.deleteSales(id).subscribe(_res => {
       this.getSales();
     })
   }
@@ -61,6 +66,15 @@ export class SalesComponent implements OnInit {
       }, 1000);
     });
   }
+
+  onSearchClear() {
+    this.searchKey = '';
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase()
+  }
+
 
 }
 
