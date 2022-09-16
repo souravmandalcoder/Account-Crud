@@ -69,6 +69,7 @@ export class SalesComponent implements OnInit {
 
   onSearchClear() {
     this.searchKey = '';
+    this.getSales()
   }
 
   applyFilter(filterValue: string) {
