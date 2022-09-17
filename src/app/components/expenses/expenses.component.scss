@@ -7,11 +7,14 @@
   display: none;
 }
 
+.expenses-table{
+  padding-bottom: 50px;
+}
+
 mat-footer-row mat-footer-cell{
     justify-content: center;
     font-style: italic;
 }
-
 
 // Filter Control
 .search-div{

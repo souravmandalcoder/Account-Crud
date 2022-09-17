@@ -6,7 +6,7 @@ import { PurchasesService } from 'src/app/services/purchases.service';
 import { AddPurchasesComponent } from '../dialogs/purchases/addPurchases/add-purchases.component';
 import { UpdatePurchasesComponent } from '../dialogs/purchases/updatePurchases/update-purchases.component';
 import { MatSort } from '@angular/material/sort';
-
+import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-purchases',
   templateUrl: './purchases.component.html',
@@ -15,6 +15,7 @@ import { MatSort } from '@angular/material/sort';
 // export class PurchasesComponent implements OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 export class PurchasesComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
   searchKey!: string;
 
@@ -37,6 +38,7 @@ export class PurchasesComponent implements OnInit {
       console.log(this.purchases);
       this.dataSource = new MatTableDataSource(this.purchases);
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     })
   }
 

@@ -24,8 +24,8 @@
 
 <div class="sales-table">
   <button mat-button (click)="openDialog()">Add New Record</button>
-  <div class="table">
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  <div class="table mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
       <ng-container matColumnDef="invoiceNumber">
         <mat-header-cell mat-sort-header *matHeaderCellDef>
           Invoice Number
@@ -124,5 +124,9 @@
         [ngClass]="{ hide: dataSource != null }"
       ></mat-footer-row>
     </mat-table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+    ></mat-paginator>
   </div>
 </div>

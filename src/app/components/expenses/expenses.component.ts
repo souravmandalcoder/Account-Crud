@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Expenses } from 'src/app/models/expenses';
 import { ExpensesService } from 'src/app/services/expenses.service';
@@ -15,6 +16,7 @@ import { UpdateExpensesComponent } from '../dialogs/expenses/update-expenses/upd
 export class ExpensesComponent implements OnInit {
 
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   searchKey!: string;
 
   displayedColumns: string[] = ['invoiceNumber', 'IPAddress', 'expenseAmount', 'DCPaymentStatus', 'date', 'transactionID', 'action'];
@@ -34,6 +36,7 @@ export class ExpensesComponent implements OnInit {
       console.log(this.expenses);
       this.dataSource = new MatTableDataSource(this.expenses);
       this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
     })
   }
 
