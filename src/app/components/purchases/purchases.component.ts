@@ -1,9 +1,11 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 import { Purchases } from 'src/app/models/purchases';
 import { PurchasesService } from 'src/app/services/purchases.service';
 import { AddPurchasesComponent } from '../dialogs/purchases/addPurchases/add-purchases.component';
 import { UpdatePurchasesComponent } from '../dialogs/purchases/updatePurchases/update-purchases.component';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-purchases',
@@ -12,6 +14,9 @@ import { UpdatePurchasesComponent } from '../dialogs/purchases/updatePurchases/u
 })
 // export class PurchasesComponent implements OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 export class PurchasesComponent implements OnInit {
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
+
+  searchKey!: string;
 
   purchases: Purchases[] = [];
 
@@ -30,8 +35,8 @@ export class PurchasesComponent implements OnInit {
     this.purchasesService.getPurchases().subscribe(res => {
       this.purchases = res;
       console.log(this.purchases);
-      this.dataSource = this.purchases;
-
+      this.dataSource = new MatTableDataSource(this.purchases);
+      this.dataSource.sort = this.sort;
     })
   }
 
@@ -63,6 +68,15 @@ export class PurchasesComponent implements OnInit {
         console.log("This is settimeout")
       }, 1000);
     });
+  }
+
+  onSearchClear() {
+    this.searchKey = '';
+    this.getPurchases()
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase()
   }
 
 }

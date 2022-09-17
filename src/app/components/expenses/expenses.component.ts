@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Expenses } from 'src/app/models/expenses';
 import { ExpensesService } from 'src/app/services/expenses.service';
 import { AddExpensesComponent } from '../dialogs/expenses/add-expenses/add-expenses.component';
@@ -12,6 +14,8 @@ import { UpdateExpensesComponent } from '../dialogs/expenses/update-expenses/upd
 })
 export class ExpensesComponent implements OnInit {
 
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
+  searchKey!: string;
 
   displayedColumns: string[] = ['invoiceNumber', 'IPAddress', 'expenseAmount', 'DCPaymentStatus', 'date', 'transactionID', 'action'];
   dataSource: any;
@@ -28,7 +32,8 @@ export class ExpensesComponent implements OnInit {
     this.expensesService.getExpenses().subscribe(res => {
       this.expenses = res;
       console.log(this.expenses);
-      this.dataSource = this.expenses;
+      this.dataSource = new MatTableDataSource(this.expenses);
+      this.dataSource.sort = this.sort;
     })
   }
 
@@ -59,6 +64,15 @@ export class ExpensesComponent implements OnInit {
         console.log("This is settimeout")
       }, 1000);
     });
+  }
+
+  onSearchClear() {
+    this.searchKey = '';
+    this.getExpenses()
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase()
   }
 
 }

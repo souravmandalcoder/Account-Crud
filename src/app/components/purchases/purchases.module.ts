@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PurchasesComponent } from './purchases.component';
 import { PurchasesRoutingModule } from './purchases-routing.module';
 import { CoreModule } from 'src/app/core/core.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,7 +14,8 @@ import { CoreModule } from 'src/app/core/core.module';
   imports: [
     CommonModule,
     PurchasesRoutingModule,
-    CoreModule
+    CoreModule,
+    FormsModule
   ]
 })
 export class PurchasesModule { }

@@ -13,7 +13,6 @@ export class LoginComponent implements OnInit {
 
   public loginForm !: FormGroup;
 
-  // loginCredentials: Login = new Login();
   login: Login = new Login()
 
   constructor(private loginService: LoginService, private formBuilder: FormBuilder, private router: Router) { }

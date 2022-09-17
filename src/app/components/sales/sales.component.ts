@@ -15,7 +15,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class SalesComponent implements OnInit {
 
-
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
   searchKey!: string;
 
   displayedColumns: string[] = ['invoiceNumber', 'IPAddress', 'receivedAmount', 'DCAmount', 'company', 'vendor', 'DCPaymentStatus', 'date', 'transactionID', 'action'];
@@ -28,13 +28,12 @@ export class SalesComponent implements OnInit {
     this.getSales();
   }
 
-
-
   getSales() {
     this.salesService.getSales().subscribe(res => {
       this.sales = res;
       console.log(this.sales);
       this.dataSource = new MatTableDataSource(this.sales);
+      this.dataSource.sort = this.sort;
     })
   }
 
