@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Purchases } from 'src/app/models/purchases';
@@ -7,12 +7,13 @@ import { AddPurchasesComponent } from '../dialogs/purchases/addPurchases/add-pur
 import { UpdatePurchasesComponent } from '../dialogs/purchases/updatePurchases/update-purchases.component';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-purchases',
   templateUrl: './purchases.component.html',
   styleUrls: ['./purchases.component.scss']
 })
-// export class PurchasesComponent implements OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 export class PurchasesComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
@@ -25,7 +26,7 @@ export class PurchasesComponent implements OnInit {
   dataSource: any;
 
 
-  constructor(private purchasesService: PurchasesService, public dialog: MatDialog) { }
+  constructor(private purchasesService: PurchasesService, public dialog: MatDialog, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -39,7 +40,16 @@ export class PurchasesComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.purchases);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-    })
+    },
+      err => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 401) {
+            this.router.navigate(['login'])
+          }
+        }
+      }
+
+    )
   }
 
   deletePurchases(id: number) {

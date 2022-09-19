@@ -3,7 +3,6 @@
   <div class="login-form" fxLayout="column">
     <form
       #f="ngForm"
-      [formGroup]="loginForm"
       fxFlex="100"
       fxLayout="row wrap"
       fxLayoutAlign="center center"
@@ -22,9 +21,9 @@
             <input
               required
               email
+              [(ngModel)]="login.email"
               matInput
               name="login"
-              formControlName="email"
               required
             />
           </mat-form-field>
@@ -42,7 +41,7 @@
             <input
               type="password"
               required
-              formControlName="password"
+              [(ngModel)]="login.password"
               name="password"
               matInput
               autocomplete="off"

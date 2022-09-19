@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -6,13 +6,20 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { LoginService } from '../services/login.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor() { }
+  constructor(private injector: Injector) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(request);
+    let loginService = this.injector.get(LoginService)
+    let tokenReq = request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${loginService.getToken()}`
+      }
+    })
+    return next.handle(tokenReq)
   }
 }

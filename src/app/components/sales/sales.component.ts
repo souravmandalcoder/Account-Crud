@@ -7,6 +7,8 @@ import { SalesService } from 'src/app/services/sales.service';
 import { NewsalesComponent } from '../dialogs/sales/newsales/newsales.component';
 import { UpdatesalesComponent } from '../dialogs/sales/updatesales/updatesales.component';
 import { MatTableDataSource } from '@angular/material/table';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sales',
@@ -24,7 +26,7 @@ export class SalesComponent implements OnInit {
   dataSource: any;
   sales: Sales[] = [];
 
-  constructor(private salesService: SalesService, public dialog: MatDialog) { }
+  constructor(private salesService: SalesService, public dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.getSales();
@@ -37,7 +39,16 @@ export class SalesComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.sales);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-    })
+    },
+      err => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 401) {
+            this.router.navigate(['login'])
+          }
+        }
+      }
+    )
+
   }
 
   deleteSales(id: number) {

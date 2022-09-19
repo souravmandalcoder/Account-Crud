@@ -7,6 +7,8 @@ import { Expenses } from 'src/app/models/expenses';
 import { ExpensesService } from 'src/app/services/expenses.service';
 import { AddExpensesComponent } from '../dialogs/expenses/add-expenses/add-expenses.component';
 import { UpdateExpensesComponent } from '../dialogs/expenses/update-expenses/update-expenses.component';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-expenses',
@@ -24,7 +26,7 @@ export class ExpensesComponent implements OnInit {
   expenses: Expenses[] = []
 
 
-  constructor(private expensesService: ExpensesService, public dialog: MatDialog) { }
+  constructor(private expensesService: ExpensesService, public dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.getExpenses();
@@ -37,6 +39,12 @@ export class ExpensesComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.expenses);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
+    }, err => {
+      if (err instanceof HttpErrorResponse) {
+        if (err.status === 401) {
+          this.router.navigate(['login'])
+        }
+      }
     })
   }
 
