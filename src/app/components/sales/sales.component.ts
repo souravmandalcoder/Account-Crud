@@ -35,7 +35,8 @@ export class SalesComponent implements OnInit {
   getSales() {
     this.salesService.getSales().subscribe(res => {
       this.sales = res;
-      console.log(this.sales);
+      this.sales.reverse();
+      console.log("reversed sales = ", this.sales);
       this.dataSource = new MatTableDataSource(this.sales);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;

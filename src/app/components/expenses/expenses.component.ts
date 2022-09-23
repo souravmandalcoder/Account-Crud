@@ -35,6 +35,7 @@ export class ExpensesComponent implements OnInit {
   getExpenses() {
     this.expensesService.getExpenses().subscribe(res => {
       this.expenses = res;
+      this.expenses.reverse();
       console.log(this.expenses);
       this.dataSource = new MatTableDataSource(this.expenses);
       this.dataSource.sort = this.sort;

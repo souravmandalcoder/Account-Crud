@@ -37,6 +37,7 @@ export class PurchasesComponent implements OnInit {
     this.purchasesService.getPurchases().subscribe(res => {
       this.purchases = res;
       console.log(this.purchases);
+      this.purchases.reverse()
       this.dataSource = new MatTableDataSource(this.purchases);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
