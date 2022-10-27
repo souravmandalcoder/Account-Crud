@@ -1,12 +1,15 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ExpensesComponent } from './expenses.component';
+import { ExpenseComponent } from './expense.component';
 import { Routes, RouterModule } from '@angular/router';
+
+
+
 
 const routes: Routes = [
   {
     path: '',
-    component: ExpensesComponent
+    component: ExpenseComponent
   }
 ]
 
@@ -17,4 +20,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class ExpensesRoutingModule { }
+export class ExpenseRoutingModule { }

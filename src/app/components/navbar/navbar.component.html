@@ -27,10 +27,10 @@
         >Purchases</a
       >
       <a
-        [routerLink]="['/expenses']"
+        [routerLink]="['/expense']"
         routerLinkActive="router-link-active"
         mat-menu-item
-        >Expenses</a
+        >Expense</a
       >
       <a
         [routerLink]="['/reports']"
@@ -42,7 +42,7 @@
     <li>
       <a
         class="nav-link"
-        style="cursor: pointer;"
+        style="cursor: pointer"
         (click)="loginService.logoutUser()"
         >Logout</a
       >

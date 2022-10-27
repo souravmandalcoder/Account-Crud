@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FullLayoutComponent } from './layout/full-layout/full-layout.component';
 import { LoginLayoutComponent } from './layout/login-layout/login-layout.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ExpenseModule } from './components/expense/expense.module';
 
 const routes: Routes = [
   {
@@ -25,8 +26,8 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
-        path: 'expenses',
-        loadChildren: () => import('./components/expenses/expenses.module').then((x) => x.ExpensesModule),
+        path: 'expense',
+        loadChildren: () => import('./components/expense/expense.module').then((x) => x.ExpenseModule),
         canActivate: [AuthGuard]
       },
       {
@@ -34,6 +35,7 @@ const routes: Routes = [
         loadChildren: () => import('./components/reports/reports.module').then((x) => x.ReportsModule),
         canActivate: [AuthGuard]
       },
+
     ]
   },
   {

@@ -1,35 +1,47 @@
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Expenses } from 'src/app/models/expenses';
 import { ExpensesService } from 'src/app/services/expenses.service';
 import { AddExpensesComponent } from '../dialogs/expenses/add-expenses/add-expenses.component';
 import { UpdateExpensesComponent } from '../dialogs/expenses/update-expenses/update-expenses.component';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-expenses',
-  templateUrl: './expenses.component.html',
-  styleUrls: ['./expenses.component.scss']
+  selector: 'app-expense',
+  templateUrl: './expense.component.html',
+  styleUrls: ['./expense.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
-export class ExpensesComponent implements OnInit {
+export class ExpenseComponent implements OnInit {
+
 
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   searchKey!: string;
 
-  displayedColumns: string[] = ['invoiceNumber', 'IPAddress', 'expenseAmount', 'DCPaymentStatus', 'date', 'transactionID', 'action'];
-  dataSource: any;
   expenses: Expenses[] = []
+  dataSource: any;
 
+  // dataSource = ELEMENT_DATA;
+  columnsToDisplay = ['invoiceNumber', 'IPAddress', 'expenseAmount', 'DCPaymentStatus', 'date', 'transactionID', 'action'];
+  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
+  expandedElement: Expenses | null | undefined;
 
   constructor(private expensesService: ExpensesService, public dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
-    this.getExpenses();
+    this.getExpenses()
   }
 
   getExpenses() {
@@ -48,6 +60,7 @@ export class ExpensesComponent implements OnInit {
       }
     })
   }
+
 
   deleteExpenses(id: number) {
     this.expensesService.deleteExpenses(id).subscribe(res => {
@@ -88,3 +101,6 @@ export class ExpensesComponent implements OnInit {
   }
 
 }
+
+
+

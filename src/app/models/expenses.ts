@@ -6,4 +6,5 @@ export class Expenses {
     DCPaymentStatus!: string;
     date!: string;
     transactionID!: number;
+    description!: string
 }
